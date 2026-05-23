@@ -7,7 +7,7 @@ import { appPath } from '@/lib/links';
 
 const nav = [
   { href: '#product', label: 'Product' },
-  { href: '#modules', label: 'Modules' },
+  { href: '/modules', label: 'Modules' },
   { href: '#pricing', label: 'Pricing' },
   { href: '#faq', label: 'FAQ' }
 ];
@@ -26,15 +26,25 @@ export default function SiteHeader() {
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
-          {nav.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-slate-300 transition hover:text-white"
-            >
-              {item.label}
-            </a>
-          ))}
+          {nav.map((item) =>
+            item.href.startsWith('/') ? (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-sm font-medium text-slate-300 transition hover:text-white"
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-sm font-medium text-slate-300 transition hover:text-white"
+              >
+                {item.label}
+              </a>
+            )
+          )}
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
@@ -65,16 +75,27 @@ export default function SiteHeader() {
       {open && (
         <div className="border-t border-white/10 bg-slate-950 px-4 py-4 md:hidden">
           <nav className="flex flex-col gap-3">
-            {nav.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-sm font-medium text-slate-200"
-                onClick={() => setOpen(false)}
-              >
-                {item.label}
-              </a>
-            ))}
+            {nav.map((item) =>
+              item.href.startsWith('/') ? (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-sm font-medium text-slate-200"
+                  onClick={() => setOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="text-sm font-medium text-slate-200"
+                  onClick={() => setOpen(false)}
+                >
+                  {item.label}
+                </a>
+              )
+            )}
             <a href={appPath('/login')} className="mt-2 text-sm font-semibold text-white">
               Sign in →
             </a>

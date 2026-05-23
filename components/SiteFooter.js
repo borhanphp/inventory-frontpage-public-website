@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { appPath } from '@/lib/links';
+import { modules } from '@/lib/modules';
 
 export default function SiteFooter() {
   const year = new Date().getFullYear();
@@ -29,15 +30,27 @@ export default function SiteFooter() {
                 </a>
               </li>
               <li>
-                <a href="#modules" className="hover:text-brand-600">
-                  Modules
-                </a>
+                <Link href="/modules" className="hover:text-brand-600">
+                  All modules
+                </Link>
               </li>
               <li>
                 <a href="#pricing" className="hover:text-brand-600">
                   Pricing
                 </a>
               </li>
+            </ul>
+          </div>
+          <div>
+            <p className="font-semibold text-slate-900">Modules</p>
+            <ul className="mt-3 space-y-2 text-slate-600">
+              {modules.map(({ slug, name }) => (
+                <li key={slug}>
+                  <Link href={`/modules/${slug}`} className="hover:text-brand-600">
+                    {name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div>

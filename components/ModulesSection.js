@@ -1,56 +1,6 @@
-import {
-  Calculator,
-  CreditCard,
-  LayoutGrid,
-  PackageSearch,
-  ShoppingCart,
-  Store,
-  Users,
-  Briefcase
-} from 'lucide-react';
-
-const modules = [
-  {
-    name: 'Inventory',
-    desc: 'Products, warehouses, stock levels, and transfers.',
-    icon: PackageSearch
-  },
-  {
-    name: 'Sales',
-    desc: 'Quotes, orders, deliveries, and customer history.',
-    icon: ShoppingCart
-  },
-  {
-    name: 'E-commerce',
-    desc: 'Public storefront, branding, and web-only pricing.',
-    icon: Store
-  },
-  {
-    name: 'Accounting',
-    desc: 'Financial workflows alongside operational data.',
-    icon: Calculator
-  },
-  {
-    name: 'CRM',
-    desc: 'Relationships tied to orders and revenue.',
-    icon: Users
-  },
-  {
-    name: 'HRM',
-    desc: 'Team records as you scale headcount.',
-    icon: Briefcase
-  },
-  {
-    name: 'Projects',
-    desc: 'Deliver work that touches inventory and billing.',
-    icon: LayoutGrid
-  },
-  {
-    name: 'Custom invoicing',
-    desc: 'Flexible billing where you need it.',
-    icon: CreditCard
-  }
-];
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
+import { modules } from '@/lib/modules';
 
 export default function ModulesSection() {
   return (
@@ -68,17 +18,21 @@ export default function ModulesSection() {
         </div>
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {modules.map(({ name, desc, icon: Icon }) => (
-            <article
-              key={name}
+          {modules.map(({ slug, name, tagline, icon: Icon }) => (
+            <Link
+              key={slug}
+              href={`/modules/${slug}`}
               className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-brand-200 hover:shadow-md"
             >
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-600 transition group-hover:bg-brand-100">
                 <Icon className="h-5 w-5" aria-hidden />
               </div>
               <h3 className="mt-4 font-display text-lg font-semibold text-slate-900">{name}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">{desc}</p>
-            </article>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600">{tagline}</p>
+              <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-brand-600 opacity-0 transition group-hover:opacity-100">
+                Learn more <ArrowRight className="h-3 w-3" aria-hidden />
+              </span>
+            </Link>
           ))}
         </div>
       </div>
