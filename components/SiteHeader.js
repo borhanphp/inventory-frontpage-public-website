@@ -9,7 +9,8 @@ const nav = [
   { href: '#product', label: 'Product' },
   { href: '/modules', label: 'Modules' },
   { href: '#pricing', label: 'Pricing' },
-  { href: '#faq', label: 'FAQ' }
+  { href: '#faq', label: 'FAQ' },
+  { href: '/support', label: 'Support' }
 ];
 
 export default function SiteHeader() {
