@@ -3,32 +3,38 @@ import { appPath } from '@/lib/links';
 
 const tiers = [
   {
-    name: 'Starter',
-    price: 'Free trial',
-    blurb: 'Explore core inventory and sales with your team.',
-    features: ['Guided onboarding', 'Inventory & warehouses', 'Sales orders', 'Email support'],
+    name: 'Basic',
+    price: '$19/mo',
+    blurb: 'Core inventory and sales for small teams.',
+    features: ['3 users', '1,000 products', '500 customers', 'Email support'],
     cta: 'Start trial',
     highlighted: false
   },
   {
-    name: 'Growth',
-    price: 'Talk to us',
-    blurb: 'E-commerce, accounting, and advanced workflows.',
+    name: 'Professional',
+    price: '$49/mo',
+    blurb: 'For growing teams that need more capacity.',
     features: [
-      'Everything in Starter',
-      'Online storefront & branding',
-      'Role-based access',
-      'Deliveries & fulfillment',
-      'Priority support options'
+      'Everything in Basic',
+      '10 users',
+      '5,000 products',
+      '2,000 customers',
+      'Priority support'
     ],
     cta: 'Open app',
     highlighted: true
   },
   {
     name: 'Enterprise',
-    price: 'Custom',
-    blurb: 'Multi-entity, integrations, and dedicated success.',
-    features: ['Custom domains & SLAs', 'API access', 'Volume pricing', 'Solutions architect'],
+    price: '$249/mo',
+    blurb: 'Unlimited scale with dedicated support.',
+    features: [
+      'Everything in Professional',
+      'Unlimited users',
+      'Unlimited products',
+      'Unlimited customers',
+      'Dedicated success manager'
+    ],
     cta: 'Contact sales',
     highlighted: false
   }
