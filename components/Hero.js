@@ -20,14 +20,14 @@ export default function Hero() {
       />
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-indigo-200">
+        <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-brand-200">
           <Sparkles className="h-3.5 w-3.5 text-amber-300" aria-hidden />
           Inventory · Sales · Storefront · Accounting — one workspace
         </div>
 
         <h1 className="mt-8 max-w-4xl font-display text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
           The operating system for{' '}
-          <span className="bg-gradient-to-r from-indigo-300 via-white to-teal-300 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-brand-300 via-white to-emerald-300 bg-clip-text text-transparent">
             stock and revenue
           </span>
         </h1>
@@ -40,7 +40,7 @@ export default function Hero() {
         <div className="mt-10 flex flex-wrap items-center gap-4">
           <a
             href={appPath('/login')}
-            className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-slate-900 shadow-xl shadow-indigo-500/10 transition hover:bg-slate-100"
+            className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-slate-900 shadow-xl shadow-brand-500/10 transition hover:bg-slate-100"
           >
             Get started
             <ArrowRight className="h-4 w-4" aria-hidden />
@@ -64,7 +64,7 @@ export default function Hero() {
               key={label}
               className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-slate-200"
             >
-              <Icon className="h-5 w-5 shrink-0 text-indigo-400" aria-hidden />
+              <Icon className="h-5 w-5 shrink-0 text-brand-400" aria-hidden />
               {label}
             </div>
           ))}

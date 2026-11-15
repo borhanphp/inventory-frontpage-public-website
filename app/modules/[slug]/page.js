@@ -17,12 +17,12 @@ const colorMap = {
     bgLight: 'bg-indigo-50',
     bgLighter: 'bg-indigo-100',
     text: 'text-indigo-600',
-    textLight: 'text-indigo-400',
+    textLight: 'text-brand-400',
     border: 'border-indigo-200',
     gradient: 'from-indigo-600 to-indigo-800',
     heroGradient: 'from-indigo-600 via-indigo-700 to-slate-900',
     ring: 'ring-indigo-500/20',
-    shadow: 'shadow-indigo-500/10'
+    shadow: 'shadow-brand-500/10'
   },
   emerald: {
     bg: 'bg-emerald-500',
@@ -352,7 +352,7 @@ export default function ModuleDetailPage({ params }) {
             <h2 className="font-display text-3xl font-bold text-white md:text-4xl">
               Ready to put {mod.name} to work?
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-lg text-indigo-100">
+            <p className="mx-auto mt-4 max-w-xl text-lg text-brand-100">
               Sign in to your workspace or start a trial. {mod.name} is included in every
               Zeeventory plan.
             </p>

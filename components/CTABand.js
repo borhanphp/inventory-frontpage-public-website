@@ -8,7 +8,7 @@ export default function CTABand() {
         <h2 className="font-display text-3xl font-bold text-white md:text-4xl">
           Ready to replace the spreadsheet stack?
         </h2>
-        <p className="mx-auto mt-4 max-w-xl text-lg text-indigo-100">
+        <p className="mx-auto mt-4 max-w-xl text-lg text-brand-100">
           Sign in to your workspace or start a trial from the app. Your team gets a single place for stock,
           orders, and — when you need it — your online store.
         </p>

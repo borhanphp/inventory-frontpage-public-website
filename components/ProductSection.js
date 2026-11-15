@@ -69,7 +69,7 @@ export default function ProductSection() {
                 </div>
                 <div className="flex items-center justify-between rounded-xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-100 text-indigo-700">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-100 text-brand-700">
                       <RefreshCw className="h-5 w-5" />
                     </div>
                     <div>

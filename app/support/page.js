@@ -142,7 +142,7 @@ export default function SupportPage() {
             </p>
             <h1 className="mt-4 max-w-3xl font-display text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl">
               We&rsquo;re here to{' '}
-              <span className="bg-gradient-to-r from-indigo-300 via-white to-teal-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-brand-300 via-white to-emerald-300 bg-clip-text text-transparent">
                 help you succeed.
               </span>
             </h1>
@@ -293,7 +293,7 @@ export default function SupportPage() {
             <h2 className="font-display text-3xl font-bold text-white md:text-4xl">
               Still need help?
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-lg text-indigo-100">
+            <p className="mx-auto mt-4 max-w-xl text-lg text-brand-100">
               Our support team is ready to assist. Reach out and we&rsquo;ll get you sorted.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
