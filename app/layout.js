@@ -1,4 +1,6 @@
 import './globals.css';
+import AttributionCapture from '@/components/AttributionCapture';
+import MarketingScripts from '@/components/MarketingScripts';
 import { DM_Sans, Outfit } from 'next/font/google';
 
 const dmSans = DM_Sans({
@@ -44,7 +46,11 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${dmSans.variable} ${outfit.variable}`}>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+        {children}
+        <AttributionCapture />
+        <MarketingScripts />
+      </body>
     </html>
   );
 }

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { ArrowRight, ChevronDown, Menu, X } from 'lucide-react';
 import Logo from '@/components/Logo';
-import { appPath, SIGNUP_URL } from '@/lib/links';
+import { appPath, DEMO_URL, SIGNUP_URL } from '@/lib/links';
 import { modules } from '@/lib/modules';
 import { getColor } from '@/lib/colors';
 
@@ -100,6 +100,12 @@ export default function SiteHeader() {
           <a href={appPath('/login')} className="text-sm font-medium text-slate-300 transition hover:text-white">
             Sign in
           </a>
+          <Link
+            href={DEMO_URL}
+            className="rounded-full border border-white/20 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
+          >
+            Book a demo
+          </Link>
           <a
             href={SIGNUP_URL}
             className="inline-flex items-center gap-1.5 rounded-full bg-brand-500 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-brand-500/30 transition hover:bg-brand-400"
@@ -161,6 +167,13 @@ export default function SiteHeader() {
             >
               Start free trial
             </a>
+            <Link
+              href={DEMO_URL}
+              onClick={() => setOpen(false)}
+              className="col-span-2 rounded-full border border-brand-400/40 bg-brand-500/10 py-3 text-center text-sm font-semibold text-brand-200"
+            >
+              Book a demo
+            </Link>
           </div>
         </div>
       )}
