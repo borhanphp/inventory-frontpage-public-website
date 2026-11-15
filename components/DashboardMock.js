@@ -20,7 +20,7 @@ const side = [
   { icon: ShoppingBasket, label: 'Purchase' },
   { icon: MonitorSmartphone, label: 'POS' },
   { icon: Store, label: 'E-commerce' },
-  { icon: Bot, label: 'AI Agent' },
+  { icon: Bot, label: 'Tara AI' },
   { icon: Calculator, label: 'Accounting' },
   { icon: Target, label: 'CRM' },
   { icon: Users, label: 'HRM' }

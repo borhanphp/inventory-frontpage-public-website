@@ -22,7 +22,7 @@ export default function Hero() {
             <span className="inline-flex items-center gap-1 rounded-full bg-brand-500 px-2 py-0.5 text-[11px] font-semibold text-white">
               <Sparkles className="h-3 w-3" aria-hidden /> New
             </span>
-            AI Sales Agent now takes orders on WhatsApp &amp; Messenger
+            Meet Tara: the AI agent that sells on WhatsApp &amp; Messenger
             <ArrowRight className="h-3 w-3 transition group-hover:translate-x-0.5" aria-hidden />
           </Link>
 
@@ -71,7 +71,7 @@ export default function Hero() {
                 <Bot className="h-4 w-4" aria-hidden />
               </span>
               <div>
-                <p className="text-xs font-semibold text-white">AI Agent created SO-1040</p>
+                <p className="text-xs font-semibold text-white">Tara created SO-1040</p>
                 <p className="mt-0.5 text-[11px] text-slate-400">via WhatsApp · stock reserved</p>
               </div>
             </div>

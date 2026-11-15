@@ -71,7 +71,7 @@ function ChannelsVisual() {
     { icon: ShoppingCart, name: 'Sales team', value: '412 orders', tone: 'from-emerald-400 to-emerald-600' },
     { icon: MonitorSmartphone, name: 'POS · 4 branches', value: '2,906 sales', tone: 'from-amber-400 to-amber-600' },
     { icon: Globe2, name: 'Online store', value: '688 orders', tone: 'from-cyan-400 to-cyan-600' },
-    { icon: Bot, name: 'AI Sales Agent', value: '184 orders', tone: 'from-violet-400 to-violet-600' }
+    { icon: Bot, name: 'Tara AI agent', value: '184 orders', tone: 'from-violet-400 to-violet-600' }
   ];
   return (
     <div className="relative">
@@ -177,7 +177,7 @@ const showcases = [
   {
     eyebrow: 'Sell on every channel',
     title: 'Sales team, shop counter, website, and chat — one stock pool',
-    body: 'Quotations and orders for B2B, an offline-ready POS for your branches, a branded online store, and an AI agent answering on WhatsApp and Messenger. Every channel reserves the same stock, so you never oversell.',
+    body: 'Quotations and orders for B2B, an offline-ready POS for your branches, a branded online store, and Tara, the AI agent selling on WhatsApp and Messenger. Every channel reserves the same stock, so you never oversell.',
     points: [
       'Customer price lists, discounts, and blanket orders',
       'Courier booking with Pathao, Steadfast, and RedX',
@@ -188,7 +188,7 @@ const showcases = [
       { href: '/modules/sales', label: 'Sales' },
       { href: '/modules/pos', label: 'POS' },
       { href: '/modules/ecommerce', label: 'E-commerce' },
-      { href: '/modules/ai-agent', label: 'AI Agent' }
+      { href: '/modules/ai-agent', label: 'Tara AI agent' }
     ],
     Visual: ChannelsVisual
   },

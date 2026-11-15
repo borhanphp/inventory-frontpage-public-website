@@ -9,7 +9,7 @@ import CTABand from '@/components/CTABand';
 export const metadata = {
   title: 'Modules — Zeeventory',
   description:
-    'Explore all 12 Zeeventory modules: Inventory, Sales, Purchase, Point of Sale, E-commerce, AI Sales Agent, Accounting, CRM, Marketing, HRM & Payroll, Projects, and Custom Invoicing.',
+    'Explore all 12 Zeeventory modules: Inventory, Sales, Purchase, Point of Sale, E-commerce, Tara AI Sales Agent, Accounting, CRM, Marketing, HRM & Payroll, Projects, and Custom Invoicing.',
   openGraph: {
     title: 'Zeeventory Modules',
     description:

@@ -118,8 +118,8 @@ const supportFaqs = [
     a: 'Go to E-commerce → Settings and Courier services to add your Pathao, Steadfast, or RedX credentials, and configure SSLCommerz, bKash, or Nagad for online payments.'
   },
   {
-    q: 'How do I set up the AI Sales Agent?',
-    a: 'Open AI Agent → Settings to configure the agent, connect your channels, and try it in the test chat before turning it on for customers.'
+    q: 'How do I set up Tara, the AI sales agent?',
+    a: 'Open Tara → Settings to connect your AI provider and channels, choose its selling options (photos, coupons, follow-ups), and try it in the test chat before turning it on for customers.'
   }
 ];
 

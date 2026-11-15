@@ -9,9 +9,10 @@ const channels = [
 ];
 
 const points = [
-  'Answers from your live catalog, prices, and stock',
+  'Understands Bangla, English and Banglish, even with typos',
+  'Sends product photos, sizes and colours from your live catalogue',
   'Creates real sales orders — reserved and ready to ship',
-  'Tells customers where their parcel is',
+  'Applies your coupons and follows up when customers go quiet',
   'Flags conversations that need a human, with fraud badges'
 ];
 
@@ -24,10 +25,10 @@ export default function AgentSection() {
       <div className="container-x relative grid items-center gap-16 lg:grid-cols-2">
         <div>
           <span className="inline-flex items-center gap-2 rounded-full border border-violet-400/20 bg-violet-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-violet-300">
-            <Bot className="h-3.5 w-3.5" aria-hidden /> AI Sales Agent
+            <Bot className="h-3.5 w-3.5" aria-hidden /> Tara · AI Sales Agent
           </span>
           <h2 className="mt-5 font-display text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
-            Your best salesperson never sleeps
+            Meet Tara, the salesperson who never sleeps
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-slate-400">
             Customers message at midnight asking for prices, stock, and delivery times. The Zeeventory agent
@@ -59,7 +60,7 @@ export default function AgentSection() {
             href="/modules/ai-agent"
             className="mt-10 inline-flex items-center gap-2 rounded-full bg-violet-500 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-violet-500/30 transition hover:bg-violet-400"
           >
-            Meet the AI Sales Agent
+            Meet Tara
             <ArrowRight className="h-4 w-4" aria-hidden />
           </Link>
         </div>
@@ -73,7 +74,7 @@ export default function AgentSection() {
                   <Bot className="h-5 w-5" aria-hidden />
                 </span>
                 <div className="flex-1">
-                  <p className="text-sm font-semibold text-slate-900">Zeeventory Agent</p>
+                  <p className="text-sm font-semibold text-slate-900">Tara · Your shop</p>
                   <p className="flex items-center gap-1.5 text-xs text-slate-500">
                     <MessageSquare className="h-3 w-3" aria-hidden /> WhatsApp · replies instantly
                   </p>

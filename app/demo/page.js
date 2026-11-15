@@ -18,7 +18,7 @@ export const metadata = {
 const agenda = [
   { icon: Users, title: 'Your workflow first', desc: 'We start with how you buy, stock, sell, and get paid today.' },
   { icon: MonitorPlay, title: 'Live product tour', desc: 'The modules that matter to you, using realistic data.' },
-  { icon: Globe2, title: 'Integrations & apps', desc: 'Couriers, payments, the AI agent, and the mobile apps.' },
+  { icon: Globe2, title: 'Integrations & apps', desc: 'Couriers, payments, Tara the AI agent, and the mobile apps.' },
   { icon: CheckCircle2, title: 'A clear next step', desc: 'Pricing, data migration, and a rollout plan — no pressure.' }
 ];
 
