@@ -14,14 +14,31 @@ const outfit = Outfit({
 });
 
 export const metadata = {
-  title: 'Zeeventory — Inventory, sales & commerce in one place',
+  title: 'Zeeventory — All-in-one cloud ERP for inventory, sales & commerce',
   description:
-    'Modern ERP for growing teams: inventory, warehouses, sales orders, deliveries, accounting, CRM, projects, and a built-in online storefront.',
+    'Zeeventory connects inventory, sales, purchasing, POS, e-commerce, an AI sales agent, accounting, CRM, marketing, HR & payroll, and projects in one cloud workspace — with mobile apps for managers, employees, and customers.',
+  keywords: [
+    'ERP',
+    'inventory management',
+    'POS',
+    'e-commerce',
+    'accounting software',
+    'CRM',
+    'HRM',
+    'payroll',
+    'warehouse management',
+    'AI sales agent'
+  ],
   openGraph: {
-    title: 'Zeeventory — Inventory, sales & commerce in one place',
+    title: 'Zeeventory — Run your entire business from one place',
     description:
-      'Run stock, sales, and your web store from a single cloud workspace. Built for operators who outgrew spreadsheets.'
+      'Inventory, sales, POS, online store, accounting, CRM, HR, and projects — connected so every sale updates stock, books, and customers at once.',
+    type: 'website'
   }
+};
+
+export const viewport = {
+  themeColor: '#0f766e'
 };
 
 export default function RootLayout({ children }) {

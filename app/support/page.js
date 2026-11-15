@@ -1,130 +1,125 @@
+import Link from 'next/link';
 import {
+  ArrowRight,
+  CalendarCheck,
+  GraduationCap,
+  LifeBuoy,
   Mail,
   MessageSquare,
-  BookOpen,
-  LifeBuoy,
-  Clock,
-  ArrowRight,
-  ExternalLink,
-  Search,
-  FileText,
-  Video,
-  Users,
-  CheckCircle,
-  Zap
+  Rocket,
+  Settings,
+  Upload,
+  Users
 } from 'lucide-react';
-import { appPath } from '@/lib/links';
+import { appPath, DEMO_URL, SIGNUP_URL, WHATSAPP_URL } from '@/lib/links';
+import { SALES_EMAIL, SUPPORT_EMAIL } from '@/lib/site';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
+import FAQSection from '@/components/FAQSection';
+import CTABand from '@/components/CTABand';
 
 export const metadata = {
   title: 'Support — Zeeventory',
   description:
-    'Get help with Zeeventory — contact our support team, browse documentation, watch tutorials, or join the community.',
+    'Get help with Zeeventory — reach our team on WhatsApp or email, book a guided demo, and find answers to common questions.',
   openGraph: {
     title: 'Zeeventory Support',
-    description:
-      'Help is here. Reach our team, explore the knowledge base, or connect with fellow Zeeventory users.'
+    description: 'Help is here. Reach our team on WhatsApp or email, or book a guided demo.'
   }
 };
 
 const channels = [
   {
     icon: MessageSquare,
-    title: 'Live Chat',
-    desc: 'Chat with our support team in real time. Available during business hours.',
-    action: 'Start chat',
-    href: appPath('/support/chat'),
+    title: 'WhatsApp support',
+    desc: 'The fastest way to reach us. Send a message and a team member will pick it up.',
+    action: 'Chat on WhatsApp',
+    href: WHATSAPP_URL,
     highlight: true
   },
   {
     icon: Mail,
-    title: 'Email Support',
-    desc: 'Send us a detailed message and we\'ll get back to you within 24 hours.',
-    action: 'support@zeeventory.com',
-    href: 'mailto:support@zeeventory.com'
+    title: 'Email support',
+    desc: 'Send us the details — screenshots help — and we will get back to you.',
+    action: SUPPORT_EMAIL,
+    href: `mailto:${SUPPORT_EMAIL}`
   },
   {
-    icon: BookOpen,
-    title: 'Documentation',
-    desc: 'Browse guides, API references, and integration walkthroughs.',
-    action: 'Browse docs',
-    href: appPath('/docs')
-  },
-  {
-    icon: Video,
-    title: 'Video Tutorials',
-    desc: 'Step-by-step walkthroughs for every module and feature.',
-    action: 'Watch tutorials',
-    href: appPath('/learn')
-  },
-  {
-    icon: Users,
-    title: 'Community Forum',
-    desc: 'Connect with other Zeeventory users, share tips, and get advice.',
-    action: 'Join the community',
-    href: appPath('/community')
+    icon: CalendarCheck,
+    title: 'Book a demo',
+    desc: 'See Zeeventory set up for your business in a guided walkthrough with our team.',
+    action: 'Schedule a demo',
+    href: DEMO_URL
   },
   {
     icon: LifeBuoy,
-    title: 'Enterprise Support',
-    desc: 'Dedicated account manager, SLA guarantees, and priority escalation.',
-    action: 'Learn more',
-    href: appPath('/enterprise')
+    title: 'Sales & Enterprise',
+    desc: 'Questions about plans, larger teams, data migration, or dedicated support.',
+    action: SALES_EMAIL,
+    href: `mailto:${SALES_EMAIL}`
   }
 ];
 
-const faqs = [
+const steps = [
   {
-    q: 'How do I reset my password?',
-    a: 'Go to the login page and click "Forgot password." Enter your email and you\'ll receive a reset link within a few minutes. If you don\'t see it, check your spam folder.'
+    icon: Rocket,
+    title: 'Create your organization',
+    desc: 'Sign up and your 14-day trial starts immediately with every module available.'
   },
   {
-    q: 'Can I export my data?',
-    a: 'Yes. Every module includes export options — CSV, Excel, and PDF. You can also request a full data export from your workspace settings.'
+    icon: Settings,
+    title: 'Set up the basics',
+    desc: 'Add your company details, warehouses, units of measure, and tax settings.'
+  },
+  {
+    icon: Upload,
+    title: 'Import your data',
+    desc: 'Bring in products, customers, suppliers, and opening stock from spreadsheets.'
+  },
+  {
+    icon: Users,
+    title: 'Invite your team',
+    desc: 'Add users, assign roles and permissions, and set up approval rules.'
+  },
+  {
+    icon: GraduationCap,
+    title: 'Go live',
+    desc: 'Start selling, buying, and posting — then switch on more modules as you need them.'
+  }
+];
+
+const supportFaqs = [
+  {
+    q: 'How do I reset my password?',
+    a: 'On the sign-in page, click "Forgot password" and enter your email. A reset link arrives within a few minutes — check your spam folder if you do not see it.'
   },
   {
     q: 'How do I add team members?',
-    a: 'Navigate to Settings > Team in your workspace. From there you can invite members by email, assign roles, and manage permissions per module.'
+    a: 'Open Admin → Users in the app to invite people by email, then assign roles and module permissions. Employees can also self-register through an invite link from HRM.'
+  },
+  {
+    q: 'How do I turn modules on or off?',
+    a: 'Organization settings list every module. Enable the ones you need — your existing data is already connected, so nothing has to be migrated.'
   },
   {
     q: 'Is there a mobile app?',
-    a: 'Zeeventory is fully responsive and optimized for mobile browsers. Native mobile apps for iOS and Android are on the roadmap.'
+    a: 'Yes. The Zeeventory app covers sales, POS, inventory, deliveries, finance, and more; the Zeeventory HRM app is for employee self-service; and there is a shopping app for your customers.'
+  },
+  {
+    q: 'Can I export my data?',
+    a: 'Yes. Lists and reports export to CSV, Excel, or PDF, and invoices and statements can be downloaded as PDFs.'
   },
   {
     q: 'What happens when my trial ends?',
-    a: 'Your workspace will be paused and you\'ll lose access until you subscribe. No data is deleted — you can pick up where you left off when you upgrade.'
+    a: 'Choose a plan from the Subscription page to keep going. Your data is kept, so you pick up exactly where you left off.'
   },
   {
-    q: 'How do I connect my ecommerce store?',
-    a: 'Go to the E-commerce module settings and select your platform (Shopify, WooCommerce, or custom API). Follow the step-by-step connection wizard.'
-  }
-];
-
-const resources = [
-  {
-    icon: FileText,
-    title: 'Getting Started Guide',
-    desc: 'Set up your workspace, invite your team, and configure your first module in under 10 minutes.',
-    href: appPath('/docs/getting-started')
+    q: 'How do I connect couriers and payment gateways?',
+    a: 'Go to E-commerce → Settings and Courier services to add your Pathao, Steadfast, or RedX credentials, and configure SSLCommerz, bKash, or Nagad for online payments.'
   },
   {
-    icon: Search,
-    title: 'Knowledge Base',
-    desc: 'Search hundreds of articles covering every feature, integration, and workflow.',
-    href: appPath('/docs/knowledge-base')
-  },
-  {
-    icon: Zap,
-    title: 'API Reference',
-    desc: 'Build custom integrations with our REST API — endpoints, authentication, and examples.',
-    href: appPath('/docs/api')
-  },
-  {
-    icon: CheckCircle,
-    title: 'Release Notes',
-    desc: 'Stay up to date with new features, improvements, and bug fixes.',
-    href: appPath('/changelog')
+    q: 'How do I set up the AI Sales Agent?',
+    a: 'Open AI Agent → Settings to configure the agent, connect your channels, and try it in the test chat before turning it on for customers.'
   }
 ];
 
@@ -134,84 +129,62 @@ export default function SupportPage() {
       <SiteHeader />
       <main>
         {/* Hero */}
-        <section className="relative overflow-hidden bg-slate-950 pb-20 pt-32 md:pb-28 md:pt-40">
-          <div className="pointer-events-none absolute inset-0 bg-hero-radial" />
-          <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-            <p className="text-sm font-semibold uppercase tracking-wider text-brand-400">
-              Support
-            </p>
-            <h1 className="mt-4 max-w-3xl font-display text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl">
-              We&rsquo;re here to{' '}
-              <span className="bg-gradient-to-r from-brand-300 via-white to-emerald-300 bg-clip-text text-transparent">
-                help you succeed.
-              </span>
+        <section className="relative overflow-hidden bg-slate-950 pb-20 pt-32 md:pb-24 md:pt-40">
+          <div className="pointer-events-none absolute inset-0 bg-grid-white bg-grid [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,black,transparent)]" />
+          <div className="pointer-events-none absolute -top-40 left-1/2 h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-brand-500/25 blur-[120px]" />
+          <div className="container-x relative text-center">
+            <span className="eyebrow-dark">Support</span>
+            <h1 className="mx-auto mt-6 max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl">
+              We&rsquo;re here to <span className="text-gradient">help you succeed</span>
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-400 md:text-xl">
-              Whether you&rsquo;re just getting started or need a hand with a specific feature —
-              find the support option that works best for you.
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-400 md:text-xl">
+              Whether you are just getting started or need a hand with a specific feature, talk to a real person on
+              the channel that suits you.
             </p>
-
-            {/* Quick stats */}
-            <div className="mt-10 flex flex-wrap gap-8">
-              <div className="flex items-center gap-3">
-                <Clock className="h-5 w-5 text-teal-400" aria-hidden />
-                <span className="text-sm text-slate-300">
-                  Average response: <strong className="text-white">&lt; 4 hours</strong>
-                </span>
-              </div>
-              <div className="flex items-center gap-3">
-                <CheckCircle className="h-5 w-5 text-teal-400" aria-hidden />
-                <span className="text-sm text-slate-300">
-                  Resolution rate: <strong className="text-white">96%</strong>
-                </span>
-              </div>
+            <div className="mt-10 flex flex-wrap justify-center gap-4">
+              <a href={WHATSAPP_URL} className="btn-primary bg-brand-500 hover:bg-brand-400">
+                <MessageSquare className="h-4 w-4" aria-hidden />
+                Chat on WhatsApp
+              </a>
+              <a href={`mailto:${SUPPORT_EMAIL}`} className="btn-ghost-dark">
+                <Mail className="h-4 w-4" aria-hidden />
+                Email support
+              </a>
             </div>
           </div>
         </section>
 
-        {/* Support channels */}
+        {/* Channels */}
         <section className="bg-white py-20 md:py-28">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="container-x">
             <div className="text-center">
-              <h2 className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
-                How can we help?
-              </h2>
-              <p className="mt-3 text-lg text-slate-500">
-                Choose the channel that works best for you.
-              </p>
+              <span className="eyebrow">Get in touch</span>
+              <h2 className="section-title mt-5">How can we help?</h2>
             </div>
 
-            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {channels.map(({ icon: Icon, title, desc, action, href, highlight }) => (
                 <a
                   key={title}
                   href={href}
-                  className={`group flex flex-col rounded-2xl border p-7 shadow-sm transition hover:shadow-lg ${
-                    highlight
-                      ? 'border-brand-200 bg-brand-50 hover:border-brand-300'
-                      : 'border-slate-200 bg-white hover:border-slate-300'
+                  className={`group flex flex-col rounded-2xl border p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-xl ${
+                    highlight ? 'border-brand-300 bg-brand-50' : 'border-slate-200 bg-white hover:border-brand-200'
                   }`}
                 >
-                  <div
-                    className={`flex h-12 w-12 items-center justify-center rounded-xl ${
+                  <span
+                    className={`flex h-12 w-12 items-center justify-center rounded-xl transition ${
                       highlight
-                        ? 'bg-brand-600 text-white'
-                        : 'bg-slate-100 text-slate-600 group-hover:bg-brand-100 group-hover:text-brand-600'
-                    } transition`}
+                        ? 'bg-brand-600 text-white shadow-md shadow-brand-600/30'
+                        : 'bg-slate-100 text-slate-600 group-hover:bg-brand-100 group-hover:text-brand-700'
+                    }`}
                   >
                     <Icon className="h-5 w-5" aria-hidden />
-                  </div>
-                  <h3 className={`mt-5 font-display text-lg font-bold ${
-                    highlight ? 'text-brand-800' : 'text-slate-900'
-                  }`}>
-                    {title}
-                  </h3>
+                  </span>
+                  <h3 className="mt-5 font-display text-lg font-bold text-slate-900">{title}</h3>
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">{desc}</p>
-                  <span className={`mt-4 inline-flex items-center gap-1.5 text-sm font-semibold ${
-                    highlight ? 'text-brand-700' : 'text-slate-700'
-                  } transition group-hover:gap-2.5`}>
+                  <span className="mt-5 inline-flex items-center gap-1.5 break-all text-sm font-semibold text-brand-700 transition group-hover:gap-2.5">
                     {action}
-                    <ArrowRight className="h-4 w-4" aria-hidden />
+                    <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
                   </span>
                 </a>
               ))}
@@ -219,121 +192,56 @@ export default function SupportPage() {
           </div>
         </section>
 
-        {/* FAQ */}
+        {/* Getting started */}
         <section className="bg-slate-50 py-20 md:py-28">
-          <div className="mx-auto max-w-3xl px-4 sm:px-6">
-            <div className="text-center">
-              <p className="text-sm font-semibold uppercase tracking-wider text-brand-600">
-                Quick answers
-              </p>
-              <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
-                Frequently asked questions
-              </h2>
+          <div className="container-x">
+            <div className="mx-auto max-w-3xl text-center">
+              <span className="eyebrow">Getting started</span>
+              <h2 className="section-title mt-5">Up and running in five steps</h2>
+              <p className="section-lead mt-5">Most teams go from sign-up to their first order on the same day.</p>
             </div>
-
-            <div className="mt-12 space-y-3">
-              {faqs.map(({ q, a }) => (
-                <details
-                  key={q}
-                  className="group rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm open:shadow-md"
-                >
-                  <summary className="cursor-pointer list-none font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
-                    <span className="flex items-center justify-between gap-4">
-                      {q}
-                      <span className="text-brand-500 transition group-open:rotate-45">+</span>
-                    </span>
-                  </summary>
-                  <p className="mt-3 text-sm leading-relaxed text-slate-600">{a}</p>
-                </details>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Knowledge base / Resources */}
-        <section className="bg-white py-20 md:py-28">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <div className="text-center">
-              <p className="text-sm font-semibold uppercase tracking-wider text-brand-600">
-                Resources
-              </p>
-              <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
-                Self-serve help center
-              </h2>
-              <p className="mt-3 text-lg text-slate-500">
-                Dive into the docs, watch tutorials, or browse the knowledge base.
-              </p>
-            </div>
-
-            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {resources.map(({ icon: Icon, title, desc, href }) => (
-                <a
-                  key={title}
-                  href={href}
-                  className="group flex flex-col items-start rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-brand-200 hover:shadow-lg"
-                >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-100 text-brand-600">
-                    <Icon className="h-5 w-5" aria-hidden />
-                  </div>
-                  <h3 className="mt-4 font-display text-base font-bold text-slate-900">{title}</h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">{desc}</p>
-                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600 transition group-hover:gap-2.5">
-                    View
-                    <ArrowRight className="h-4 w-4" aria-hidden />
+            <ol className="mt-14 grid gap-5 md:grid-cols-5">
+              {steps.map(({ icon: Icon, title, desc }, i) => (
+                <li key={title} className="card relative p-6">
+                  <span className="absolute right-5 top-5 font-display text-3xl font-bold text-slate-100">
+                    {i + 1}
                   </span>
-                </a>
+                  <span className="relative flex h-11 w-11 items-center justify-center rounded-xl bg-brand-600 text-white shadow-md shadow-brand-600/30">
+                    <Icon className="h-5 w-5" aria-hidden />
+                  </span>
+                  <h3 className="relative mt-5 font-display text-base font-semibold text-slate-900">{title}</h3>
+                  <p className="relative mt-2 text-sm leading-relaxed text-slate-600">{desc}</p>
+                </li>
               ))}
+            </ol>
+            <div className="mt-10 flex flex-wrap justify-center gap-3">
+              <a href={SIGNUP_URL} className="btn-primary">
+                Create your organization
+                <ArrowRight className="h-4 w-4" aria-hidden />
+              </a>
+              <a
+                href={appPath('/login')}
+                className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-slate-800 transition hover:border-brand-400"
+              >
+                Sign in
+              </a>
+              <Link
+                href="/modules"
+                className="inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold text-brand-700 hover:underline"
+              >
+                Browse modules
+              </Link>
             </div>
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="bg-gradient-to-br from-brand-700 via-brand-600 to-teal-700 py-16 md:py-20">
-          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
-            <h2 className="font-display text-3xl font-bold text-white md:text-4xl">
-              Still need help?
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-lg text-brand-100">
-              Our support team is ready to assist. Reach out and we&rsquo;ll get you sorted.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <a
-                href="mailto:support@zeeventory.com"
-                className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-semibold text-brand-700 shadow-xl transition hover:bg-slate-100"
-              >
-                <Mail className="h-4 w-4" aria-hidden />
-              Email support
-              </a>
-              <a
-                href={appPath('/support/chat')}
-                className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-8 py-4 text-sm font-semibold text-white shadow-xl backdrop-blur transition hover:bg-white/20"
-              >
-                <MessageSquare className="h-4 w-4" aria-hidden />
-              Start live chat
-              </a>
-            </div>
-          </div>
-        </section>
+        <FAQSection faqs={supportFaqs} title="Quick answers" id="support-faq" />
 
-        {/* Status bar */}
-        <section className="border-t border-slate-200 bg-white py-8">
-          <div className="mx-auto flex max-w-6xl items-center justify-center gap-4 px-4 sm:px-6">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
-            </span>
-            <p className="text-sm text-slate-600">
-              All systems operational.{' '}
-              <a
-                href={appPath('/status')}
-                className="font-medium text-brand-600 underline-offset-2 hover:underline"
-              >
-                Check status page
-                <ExternalLink className="ml-0.5 inline h-3 w-3" aria-hidden />
-              </a>
-            </p>
-          </div>
-        </section>
+        <CTABand
+          title="Still need help?"
+          body="Our team is happy to walk you through anything — from first setup to advanced workflows."
+          primaryLabel="Start your free trial"
+        />
       </main>
       <SiteFooter />
     </>

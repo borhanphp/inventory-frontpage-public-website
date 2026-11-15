@@ -1,46 +1,44 @@
-const faqs = [
-  {
-    q: 'Is Zeeventory only for ecommerce?',
-    a: 'No. Many teams use Zeeventory for inventory and B2B sales only. The storefront is optional — turn it on when you want a public catalog and checkout.'
-  },
-  {
-    q: 'Can we use our own domain for the store?',
-    a: 'Yes. You can run on a subdomain provided by the platform or connect a custom domain with DNS verification when your plan supports it.'
-  },
-  {
-    q: 'How do web store orders appear in the ERP?',
-    a: 'Orders created on the storefront are sales orders in the same system your warehouse and finance teams already use, with channel metadata so you can filter ecommerce separately.'
-  },
-  {
-    q: 'Where is data hosted?',
-    a: 'Deploy Zeeventory on infrastructure you control or use our cloud — speak with your administrator about your environment and backup policies.'
-  }
-];
+import Link from 'next/link';
+import { MessageSquare, Plus } from 'lucide-react';
+import { faqs as defaultFaqs, SUPPORT_EMAIL } from '@/lib/site';
 
-export default function FAQSection() {
+export default function FAQSection({ faqs = defaultFaqs, title = 'Questions, answered', id = 'faq' }) {
   return (
-    <section id="faq" className="scroll-mt-24 bg-slate-50 py-20 md:py-28">
-      <div className="mx-auto max-w-3xl px-4 sm:px-6">
-        <div className="text-center">
-          <p className="text-sm font-semibold uppercase tracking-wider text-brand-600">FAQ</p>
-          <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
-            Answers for buyers and operators
-          </h2>
+    <section id={id} className="scroll-mt-20 bg-white py-24 md:py-32">
+      <div className="container-x grid gap-12 lg:grid-cols-3">
+        <div>
+          <span className="eyebrow">FAQ</span>
+          <h2 className="section-title mt-5">{title}</h2>
+          <p className="section-lead mt-5">Everything buyers and operators usually ask before getting started.</p>
+          <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+            <MessageSquare className="h-6 w-6 text-brand-600" aria-hidden />
+            <p className="mt-3 font-semibold text-slate-900">Still have questions?</p>
+            <p className="mt-1 text-sm text-slate-600">Our team usually replies within one business day.</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <a href={`mailto:${SUPPORT_EMAIL}`} className="text-sm font-semibold text-brand-700 hover:underline">
+                {SUPPORT_EMAIL}
+              </a>
+              <span className="text-slate-300">·</span>
+              <Link href="/support" className="text-sm font-semibold text-brand-700 hover:underline">
+                Support center
+              </Link>
+            </div>
+          </div>
         </div>
 
-        <div className="mt-12 space-y-3">
+        <div className="space-y-3 lg:col-span-2">
           {faqs.map(({ q, a }) => (
             <details
               key={q}
-              className="group rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm open:shadow-md"
+              className="group rounded-2xl border border-slate-200 bg-white px-6 py-5 shadow-sm transition open:border-brand-200 open:shadow-md"
             >
-              <summary className="cursor-pointer list-none font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
-                <span className="flex items-center justify-between gap-4">
-                  {q}
-                  <span className="text-brand-500 transition group-open:rotate-45">+</span>
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
+                {q}
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-600 transition group-open:rotate-45 group-open:bg-brand-600 group-open:text-white">
+                  <Plus className="h-4 w-4" aria-hidden />
                 </span>
               </summary>
-              <p className="mt-3 text-sm leading-relaxed text-slate-600">{a}</p>
+              <p className="mt-3 pr-10 text-sm leading-relaxed text-slate-600">{a}</p>
             </details>
           ))}
         </div>

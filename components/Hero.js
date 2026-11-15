@@ -1,73 +1,92 @@
-import {
-  ArrowRight,
-  BarChart3,
-  Boxes,
-  Globe2,
-  ShieldCheck,
-  Sparkles
-} from 'lucide-react';
-import { appPath } from '@/lib/links';
+import Link from 'next/link';
+import { ArrowRight, Bot, CheckCircle2, PlayCircle, Sparkles, Truck } from 'lucide-react';
+import DashboardMock from '@/components/DashboardMock';
+import { SIGNUP_URL } from '@/lib/links';
+
+const assurances = ['14-day free trial', 'No credit card required', 'Set up in minutes'];
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-slate-950 pb-24 pt-32 md:pb-32 md:pt-40">
-      <div className="pointer-events-none absolute inset-0 bg-hero-radial" />
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.35]"
-        style={{
-          backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.04\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")'
-        }}
-      />
+    <section className="relative overflow-hidden bg-slate-950 pb-20 pt-32 md:pb-28 md:pt-40">
+      {/* backdrop */}
+      <div className="pointer-events-none absolute inset-0 bg-grid-white bg-grid [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,black,transparent)]" />
+      <div className="pointer-events-none absolute -top-40 left-1/2 h-[560px] w-[900px] -translate-x-1/2 rounded-full bg-brand-500/25 blur-[120px]" />
+      <div className="pointer-events-none absolute right-[-10%] top-1/3 h-[380px] w-[380px] rounded-full bg-emerald-500/15 blur-[100px]" />
 
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-brand-200">
-          <Sparkles className="h-3.5 w-3.5 text-amber-300" aria-hidden />
-          Inventory · Sales · Storefront · Accounting — one workspace
+      <div className="container-x relative">
+        <div className="mx-auto max-w-4xl text-center">
+          <Link
+            href="/modules/ai-agent"
+            className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 py-1 pl-1 pr-3 text-xs font-medium text-slate-300 backdrop-blur transition hover:border-brand-400/40"
+          >
+            <span className="inline-flex items-center gap-1 rounded-full bg-brand-500 px-2 py-0.5 text-[11px] font-semibold text-white">
+              <Sparkles className="h-3 w-3" aria-hidden /> New
+            </span>
+            AI Sales Agent now takes orders on WhatsApp &amp; Messenger
+            <ArrowRight className="h-3 w-3 transition group-hover:translate-x-0.5" aria-hidden />
+          </Link>
+
+          <h1 className="mt-8 font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl">
+            Run your entire business <span className="text-gradient">from one place</span>
+          </h1>
+
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-400 md:text-xl">
+            Zeeventory is the all-in-one cloud ERP for inventory, sales, purchasing, POS, online store,
+            accounting, CRM, HR, and projects — connected so every sale updates stock, books, and customers
+            at once.
+          </p>
+
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <a href={SIGNUP_URL} className="btn-primary bg-brand-500 px-7 py-4 hover:bg-brand-400">
+              Start your free trial
+              <ArrowRight className="h-4 w-4" aria-hidden />
+            </a>
+            <a href="#platform" className="btn-ghost-dark px-7 py-4">
+              <PlayCircle className="h-4 w-4" aria-hidden />
+              Take the tour
+            </a>
+          </div>
+
+          <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-400">
+            {assurances.map((a) => (
+              <li key={a} className="flex items-center gap-1.5">
+                <CheckCircle2 className="h-4 w-4 text-brand-400" aria-hidden />
+                {a}
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <h1 className="mt-8 max-w-4xl font-display text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
-          The operating system for{' '}
-          <span className="bg-gradient-to-r from-brand-300 via-white to-emerald-300 bg-clip-text text-transparent">
-            stock and revenue
-          </span>
-        </h1>
+        {/* product visual */}
+        <div className="relative mx-auto mt-16 max-w-6xl md:mt-20">
+          <div className="pointer-events-none absolute -inset-x-10 -inset-y-6 rounded-[2.5rem] bg-gradient-to-b from-brand-500/20 via-brand-500/5 to-transparent blur-2xl" />
+          <div className="relative">
+            <DashboardMock />
+          </div>
 
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-400 md:text-xl">
-          Zeeventory connects warehouses, sales orders, deliveries, and your online store so your team
-          stops reconciling spreadsheets and starts shipping faster.
-        </p>
-
-        <div className="mt-10 flex flex-wrap items-center gap-4">
-          <a
-            href={appPath('/login')}
-            className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-slate-900 shadow-xl shadow-brand-500/10 transition hover:bg-slate-100"
-          >
-            Get started
-            <ArrowRight className="h-4 w-4" aria-hidden />
-          </a>
-          <a
-            href="#product"
-            className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-white/5"
-          >
-            See how it works
-          </a>
-        </div>
-
-        <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            { icon: Boxes, label: 'Multi-warehouse inventory' },
-            { icon: BarChart3, label: 'Sales & fulfillment' },
-            { icon: Globe2, label: 'Built-in ecommerce' },
-            { icon: ShieldCheck, label: 'Roles & audit-friendly' }
-          ].map(({ icon: Icon, label }) => (
-            <div
-              key={label}
-              className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-slate-200"
-            >
-              <Icon className="h-5 w-5 shrink-0 text-brand-400" aria-hidden />
-              {label}
+          {/* floating notifications */}
+          <div className="absolute -left-6 top-24 hidden w-64 animate-float rounded-xl border border-white/10 bg-slate-900/90 p-3 shadow-2xl backdrop-blur xl:block">
+            <div className="flex items-start gap-3">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-violet-500/20 text-violet-300">
+                <Bot className="h-4 w-4" aria-hidden />
+              </span>
+              <div>
+                <p className="text-xs font-semibold text-white">AI Agent created SO-1040</p>
+                <p className="mt-0.5 text-[11px] text-slate-400">via WhatsApp · stock reserved</p>
+              </div>
             </div>
-          ))}
+          </div>
+          <div className="absolute -right-6 bottom-16 hidden w-64 animate-float-slow rounded-xl border border-white/10 bg-slate-900/90 p-3 shadow-2xl backdrop-blur xl:block">
+            <div className="flex items-start gap-3">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-500/20 text-emerald-300">
+                <Truck className="h-4 w-4" aria-hidden />
+              </span>
+              <div>
+                <p className="text-xs font-semibold text-white">SO-1042 delivered</p>
+                <p className="mt-0.5 text-[11px] text-slate-400">Pathao · invoice posted to ledger</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
